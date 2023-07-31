@@ -1,25 +1,129 @@
-<%- include('../partials/header')>
+<%- include('../partials/header') %>
 
 <section class="userInfo">
-    <h2>Hi <%=user.name %>!</h2>
+    <h2>Hi <%= user.name %> !</h2>
 </section>
 
 <section class="progress">
+    <% if (profile.length) { %>
     <h3>Rehab Progression</h3>
+    <table>
+        <thead>
+            <tr>
+            <th>Goal</th>
+            <th>Injury</th>
+            <th>Training Sessions Per Week</th>
+            <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        <% profile.forEach((p) => { %>
+            <tr><%= p.goal %></tr>
+            <tr><%= p.injury %></tr>
+            <tr><%= p.trainingamount%></tr>
+            <tr><button>E</button></tr>
+            <tr><button>X</button></tr>
+
+        </tbody>
+        <% }) } else { %>
+            <h4>Tell Us Your Recovery Goal</h4>
+            <p>Goal setting is a fundamental part of treatment. They provide you direction and encouragement through the tought times.</p>
+            <form action="">
+                <label for="">Whats Your Goal</label>
+                <input type="text"><br>
+                <label for="">Whats your Injury</label>
+                <input type="text"><br>
+                <label for="">How many Sessions per week</label>
+                <input type="number" name="" id="">
+            </form>
+    <% }%>
     
 </section>
 
 <section class="plan">
-    <h3>Exercise Log</h3>
-
+    <% if (exercise.length) { %>
+        <h3> Exercise Bundle</h3>
+        <table>
+            <thead>
+                <tr>
+                <th>Exercise Name</th>
+                <th>Sets</th>
+                <th>Reps</th>
+                <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% exercise.forEach((e) => { %>
+                <tr>
+                    <td><%= e.exName %></td>
+                    <td><%= e.sets %></td>
+                    <td><%= e.reps%></td>
+                </tr>
+                <div>See full details here</div>
+            </tbody>
+        </table>
+    <% }) } else { %>
+        <h4>Add Exercises to Your Bundle !</h4>
+        <form id="add-exercise-form" method="POST"
+        action="">
+        <label>Exercise Name:</label>
+        <input type="text"><br>
+        <label>Description:</label>
+        <textarea name="content"></textarea><br>
+        <label>Number of Sets:</label>
+        <input type="number"><br>
+        </select>
+        <label for="">Number of Reps:</label>
+        <input type="number"><br>
+        <label>Video Link:</label>
+        <input type="url" name="url" id="url" 
+        placeholder="https://example.com"
+        pattern="https://.*"
+        ><br>
+        <button type="submit">Add Exercise </button>
+    <% }%>
+    
 </section>
 
 <section class="journal">
     <h3>Journal</h3>
+    <% if (journal.length) { %>
+    <table>
+        <thead>
+            <tr>
+                <th>Training Session Number</th>
+                <th>Date</th>
+                <th>Session Review:</th>
+                <th>Session Rating:</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% journal.forEach((j)=> { %>
+            <tr>
+              <td>Training session number Maybe this is log ? </td>
+              <td><%= j.createdAt.toLocaleDateString() %></td>
+              <td><%= j.content %></td>
+              <td><%= j.rating %></td>
+              <td><button>E</button></td>
+              <td><button>X</button></td>
+            </tr>
+        </tbody>
+        <% }) } else { %>
+        <h4>Enter Your first Session Entry</h4>
+        <p> Journaling has been proven to reduce stress, improve mind body connection, as well as countless mental health benefits. Reflect on your sessions, either at home or at the physio, write down what went well or what could be improved upon. Give your session a score out of 10 and track your progress ! Give it a go below: </p>
+
+        <form action="">
+            <label>Session Number</label>
+            <input type="Number"><br>
+            <label for="">Session Review</label>
+            <textarea name="content"></textarea><br>
+            <label for="">Session Rating</label>
+            <input type="Number" name="" id="rating">
+        </form>
+    </table>
+    <% } %>
 </section>
 
-
-
-
-
-<%- include('../partials/footer')>
+<%- include('../partials/footer') %>

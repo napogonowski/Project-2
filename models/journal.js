@@ -14,7 +14,7 @@ const journalSchema = new Schema ({
     rating: {
         type: Number,
         min: 1,
-        max: 5,
+        max: 10,
         default: 5
     },
     userName: String,
