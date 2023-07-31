@@ -7,8 +7,9 @@ const exerciseSchema = new Schema ({
     description: String, 
     sets: Number,
     reps: Number, 
+    video: String, 
     delete: Boolean,
     archieved: Boolean
-})
+});
 
 module.exports = mongoose.model('Exercise', exerciseSchema); 

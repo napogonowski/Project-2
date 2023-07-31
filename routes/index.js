@@ -8,26 +8,26 @@ router.get('/', function(req, res, next) {
 });
 
 // OAUTH ROUTE (GET -> auth/google)
-router.get('auth/google', passport.authenticate(
+router.get('/auth/google', passport.authenticate(
   'google',
   {
-    scope:[ 'profile', 'email'],
-    prompt: 'secelt_account'
+    scope:['profile', 'email'],
+    prompt: 'select_account'
   }
 ));
 //URI CB 
 router.get('/oauth2callback', passport.authenticate(
   'google',
   {
-    successRedirect: '/dashboard',
-    failureRedirect: '/index'
+    successRedirect: '/',
+    failureRedirect: '/'
   }
 ));
 
 // log out 
 router.get('/logout', function (req, res) {
   req.logout(function () {
-    res.redirect('/index')
+    res.redirect('/')
   });
 });
 module.exports = router;

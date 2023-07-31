@@ -8,10 +8,9 @@ const passport = require('passport');
 
 require('dotenv').config(); 
 require('./config/database'); 
+require('./config/passport');
 
-
-
-
+//routes
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 
@@ -33,6 +32,11 @@ app.use(session({
 }))
 app.use(passport.initialize());
 app.use(passport.session()); 
+// giving ejs access to user variable
+app.use(function (req, res, next) {
+  res.locals.user = req.user; 
+  next(); 
+})
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
