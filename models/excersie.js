@@ -7,13 +7,11 @@ const exerciseSchema = new Schema ({
         ref: "User",
         required: true
     },
-    exName: String,
-    description: String, 
-    sets: Number,
-    reps: Number, 
-    video: String, 
-    delete: Boolean,
-    archieved: Boolean
+    exName: [{ type: String, required: true}],
+    description: [{ type: String}],
+    sets: [{ type: String, required: true}],
+    reps: [{ type: String, required: true}], 
+    video: [{ type: String}],
 });
 
 module.exports = mongoose.model('Exercise', exerciseSchema); 

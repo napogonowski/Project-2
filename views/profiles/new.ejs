@@ -1,0 +1,57 @@
+<%- include('../partials/header') %>
+
+<section class="userInfo">
+    <h2>Hi <%= user.name %> ready to enter some infomation ?</h2>
+</section>
+
+<section class="progress">
+            <h4>Tell Us Your Recovery Goal</h4>
+            <p>Goal setting is a fundamental part of treatment. They provide you with direction and inspiration through the tought times.</p>
+            <form action="/profiles" method="POST">
+                <label>Whats Your Goal</label>
+                <input type="text" name="goal"><br>
+                <label for="">Whats your Injury</label>
+                <input type="text" name="injury"><br>
+                <label for="">How many Sessions per week</label>
+                <input type="number" name="trainingamount"><br>
+                <button type="submit">Add Your Goal</button>
+            </form>
+</section>
+
+<section class="plan">
+        <h4>Add Exercises to Your Bundle !</h4>
+        <form id="add-exercise-form" method="POST"
+        action="">
+        <label>Exercise Name:</label>
+        <input type="text"><br>
+        <label>Description:</label>
+        <textarea name="content"></textarea><br>
+        <label>Number of Sets:</label>
+        <input type="number"><br>
+        </select>
+        <label for="">Number of Reps:</label>
+        <input type="number"><br>
+        <label>Video Link:</label>
+        <input type="url" name="url" id="url" 
+        placeholder="https://example.com"
+        pattern="https://.*"
+        ><br>
+        <button type="submit">Add Exercise </button>  
+</section>
+
+<section class="journal">
+        <h3>Enter Your first Session Entry</h3>
+        <p> Journaling has been proven to reduce stress, improve mind body connection, as well as countless mental health benefits. Reflect on your sessions, either at home or at the physio, write down what went well or what could be improved upon. Give your session a score out of 10 and track your progress ! Give it a go below: </p>
+
+        <form action="">
+            <label>Session Number</label>
+            <input type="Number"><br>
+            <label for="">Session Review</label>
+            <textarea name="content"></textarea><br>
+            <label for="">Session Rating</label>
+            <input type="Number" name="" id="rating">
+        </form>
+    </table>
+</section>
+
+<%- include('../partials/footer') %>

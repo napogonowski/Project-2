@@ -1,6 +1,25 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema; 
 
+
+const injuryProfileSchema = new Schema ({
+  injury:[{ 
+    type: String, 
+    required: true
+  }],
+    goal:[{
+        type: String
+      }],
+    trainingamount: 
+    [{
+        type: Number, 
+        required: true
+    }],
+  }, {
+    timestamps: true
+  })
+
+
 const userSchema = new Schema ({
   name: String,
   googleId: {
@@ -9,10 +28,7 @@ const userSchema = new Schema ({
   },
   email: String,
   avatar: String,
-  profile: {
-      type: Schema.Types.ObjectId,
-      ref: "Profile"
-  }
+  injuryProfile: [injuryProfileSchema], 
 }, {
     timestamps: true
 }); 

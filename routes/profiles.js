@@ -1,16 +1,17 @@
 const express = require('express');
 const router = express.Router();
-const profilesController = require('../controllers/profiles'); 
-const profile = require('../models/profile');
+const injuryProfilesController = require('../controllers/profiles'); 
 
 
-// get  / profile/:id controller action show
+
+// get  / profiles/:id controller action show
 
 
-router.get('/', profilesController.show);
+router.get('/', injuryProfilesController.show);
 
-router.get('/new', profilesController.new);
-router.post('/', profilesController.create);
+router.get('/new', injuryProfilesController.new);
+router.post('/', injuryProfilesController.create);
+router.delete('/:id', injuryProfilesController.delete)
 
 
 
