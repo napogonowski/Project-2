@@ -5,8 +5,7 @@ const Schema = mongoose.Schema;
 const profileSchema = new Schema ({
     user: {
         type: Schema.Types.ObjectId,
-        ref: "User",
-        required: true
+        ref: "User"
     },
     injury: String,
     goal: String, 

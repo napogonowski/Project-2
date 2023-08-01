@@ -27,14 +27,15 @@
         </tbody>
         <% }) } else { %>
             <h4>Tell Us Your Recovery Goal</h4>
-            <p>Goal setting is a fundamental part of treatment. They provide you direction and encouragement through the tought times.</p>
-            <form action="">
-                <label for="">Whats Your Goal</label>
-                <input type="text"><br>
+            <p>Goal setting is a fundamental part of treatment. They provide you with direction and inspiration through the tought times.</p>
+            <form action="/profiles" method="POST">
+                <label>Whats Your Goal</label>
+                <input type="text" name="goal"><br>
                 <label for="">Whats your Injury</label>
-                <input type="text"><br>
+                <input type="text" name="injury"><br>
                 <label for="">How many Sessions per week</label>
-                <input type="number" name="" id="">
+                <input type="number" name="trainingamount"><br>
+                <button type="submit">Add Your Goal</button>
             </form>
     <% }%>
     
@@ -102,12 +103,12 @@
         <tbody>
             <% journal.forEach((j)=> { %>
             <tr>
-              <td>Training session number Maybe this is log ? </td>
-              <td><%= j.createdAt.toLocaleDateString() %></td>
-              <td><%= j.content %></td>
-              <td><%= j.rating %></td>
-              <td><button>E</button></td>
-              <td><button>X</button></td>
+                <td>Training session number Maybe this is log ? </td>
+                <td><%= j.createdAt.toLocaleDateString() %></td>
+                <td><%= j.content %></td>
+                <td><%= j.rating %></td>
+                <td><button>E</button></td>
+                <td><button>X</button></td>
             </tr>
         </tbody>
         <% }) } else { %>

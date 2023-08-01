@@ -13,6 +13,7 @@ passport.use(new GoogleStrategy(
     async function (accessToken, refreshToken, profile, cb) {
         try {
             let user = await User.findOne({ googleId: profile.id});
+            console.log(profile);
             // exisiting user
             if (user) return cb(null, user);
             // new user via oauth
@@ -20,7 +21,7 @@ passport.use(new GoogleStrategy(
                 name: profile.displayName,
                 googleId: profile.id,
                 email: profile.emails[0].value,
-                avatar: profile.photos[0].value
+                avatar: profile.photos[0].value,
             }); 
             return cb(null, user);
         } catch (err) {
