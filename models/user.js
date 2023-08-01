@@ -17,7 +17,7 @@ const injuryProfileSchema = new Schema ({
     }],
   }, {
     timestamps: true
-  })
+}); 
 
 
 const userSchema = new Schema ({
@@ -29,6 +29,10 @@ const userSchema = new Schema ({
   email: String,
   avatar: String,
   injuryProfile: [injuryProfileSchema], 
+  exercise: {
+    type: Schema.Types.ObjectId,
+    ref: "Exercise",
+  },
 }, {
     timestamps: true
 }); 

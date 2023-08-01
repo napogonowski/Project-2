@@ -1,0 +1,30 @@
+<%- include('../partials/header') %>
+
+
+<section class="plan">
+    <h4>Add An Exercise To Your Bundle!</h4>
+    <form id="add-exercise-form" method="POST"action="">
+    <label>Exercise Name:</label>
+    <input type="text"><br>
+
+    <label>Description:</label>
+    <textarea name="content"></textarea><br>
+
+    <label>Number of Sets:</label>
+    <input type="number" min="1" max="10"><br>
+
+    <label for="">Number of Reps:</label>
+    <input type="number" min="1" max="10"><br>
+
+    <label>Video Link:</label>
+    <input 
+        type="url" name="url" id="url" 
+        placeholder="https://example.com"
+        pattern="https://.*"
+    ><br>
+
+    <button type="submit">Add Exercise</button>  
+</section>
+
+
+<%- include('../partials/footer') %>
