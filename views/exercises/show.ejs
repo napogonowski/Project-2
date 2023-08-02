@@ -1,20 +1,34 @@
 <%- include('../partials/header') %>
 
-<section id="show-page">
-    <div>Exercise Name: </div>
-    <div><%= exercise.exName %></div>
-    <div>Description: </div>
-    <div><%= exercise.description %></div>
-    <div>Number of Sets: </div>
-    <div><%= exercise.sets %></div>
-
-    <div>Number of Reps: </div>
-    <div><%= exercise.reps %></div>
-    <div>Exercise Video: </div>
-    <div><%= exercise.video %></div>
-    
-</section>
-
+<table class="table">
+    <tbody>
+        <tr>
+            <th scope="row">Exercise Name:</th>
+            <td><%= exercise.exName %></td>
+        </tr>
+        <tr>
+            <th scope="row">Description:</th>
+              <td><%= exercise.description %></td>
+            </tr>
+            <tr>
+              <th scope="row">Number of Sets:</th>
+              <td><%= exercise.sets %></td>
+        
+            </tr>
+            <tr>
+              <th scope="row">Number of Reps:</th>
+              <td><%= exercise.reps %></td>
+            
+            </tr>
+            <tr>
+              <th scope="row">Exercise Video:</th>
+              <td><%= exercise.video %> </td>
+            </tr>
+            <tr>
+                <td colspan="2"><a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="/exercises/<%= exercise._id %>/edit">Edit Training Data</a></td>
+            </tr>
+          </tbody>
+        </table>
 
 
 

@@ -1,0 +1,56 @@
+<%- include('../partials/header') %>
+
+    <form action="/exercises/<%= exercise._id %>?_method=PUT" method="POST">
+        <label>Exercise Name:</label>
+        <input type="text" name="exName"><br>
+    
+        <label>Description:</label>
+        <textarea name="description"></textarea><br>
+    
+        <label>Number of Sets:</label>
+        <input type="number" name="sets" min="1" max="10"><br>
+    
+        <label for="">Number of Reps:</label>
+        <input type="number" name="reps" min="1" max="15"><br>
+    
+        <label>Video Link:</label>
+        <input 
+            type="url" name="video" id="url" 
+            placeholder="https://example.com"
+            pattern="https://.*"
+        ><br>
+    
+        <button type="submit">Add Exercise</button>
+    </form>
+ 
+
+        
+<div class="form-floating mb-3">
+    <form action="/exercises/<%= exercise._id %>?_method=PUT" method="POST">
+        
+        <input type="text" name="exName" class="form-control" id="floatingInput" placeholder= <%= exercise.exName%> ><br>
+        
+        <div class="form-floating"></div>
+            <label>Description:</label>
+            <textarea name="description" class="form-control" id="floatingInput" placeholder= <%= exercise.description %> </textarea> <br>
+        </div>
+        <label>Number of Sets:</label>
+        <input type="number" name="sets" min="1" max="10"><br>
+    
+        <label for="">Number of Reps:</label>
+        <input type="number" name="reps" min="1" max="15"><br>
+    
+        <label>Video Link:</label>
+        <input 
+            type="url" name="video" id="url" 
+            placeholder="https://example.com"
+            pattern="https://.*"
+        ><br>
+    
+        <button type="submit">Edit Exercise</button>
+    </form>
+        
+        
+ </div>
+
+<%- include('../partials/footer') %>

@@ -4,13 +4,14 @@
 
 <h1>INDEX PAGE</h1>
 
-<table id="list">
+<!-- <table id="list">
     <thead>
       <tr>
         <th>Exercise Name</th><br>
         <th>Description</th><br>
         <th>Sets</th>
         <th>Reps</th>
+        <th></th>
         <th></th>
         <th></th>
         <th></th>
@@ -24,13 +25,41 @@
           <td><%= e.sets %></td>
           <td><%= e.reps %></td>
           <td><%= e.video %></td>
-          <td><a href="/exercise/<%= e._id %>">DETAILS</a></td> 
-          <td><button type= ></button></td>
+          <td><a href="/exercises/<%= e._id %>">DETAILS</a></td> 
+          <td><form 
+            action="/exercises/<%= e._id %>/?_method=DELETE" 
+            method="POST">
+            <button type="submit">X</button>
+        </form></td>
         </tr>
         <% }); %>
       </tbody>
-    </table>
+    </table> -->
 
+
+   
+    <div class="card" style="width: 18rem;">
+      <% exercises.forEach(function(e) { %>
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title"><%= e.exName %></h5>
+        <p class="card-text"><%= e.description %></p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Sets: <%= e.sets %></li>
+        <li class="list-group-item">Reps: <%= e.reps %></li>
+
+      </ul>
+      <div class="card-body">
+        <a class="card-link" href="/exercises/<%= e._id %>">DETAILS</a>
+        <form 
+            action="/exercises/<%= e._id %>/?_method=DELETE" 
+            method="POST">
+            <button type="submit">X</button>
+        </form>
+      </div>
+      <% }); %>
+    </div>
 
 
 
