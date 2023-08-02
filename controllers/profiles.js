@@ -7,7 +7,60 @@ module.exports = {
     delete: deleteInjuryProfile,
     create,
     new: newProfile,
-    show
+    show,
+    update,
+    edit
+}
+
+async function edit (req, res, next) { 
+    try{
+        console.log('Heres req user', req.user)
+        const user = await User.findById(req.user.id).populate('injuryProfile'); 
+        res.render('profiles/edit', {
+            title: 'Edit Injury Profile',
+            injuryProfile: user.injuryProfile,
+        });
+    } catch(error) { 
+        next(error)
+    }
+}
+
+
+async function update(req, res, next) {
+    try{
+        console.log('Heres req user 2', req.user)
+
+        const profileEL = await User.findOneAndUpdate({_id: req.user._id}, req.body );
+        // undefined 
+        console.log('heres the req BODY', req.body)
+
+        
+        // console.log("profileEL", profileEL)
+        // console.log('injuryProfile:', profileEL.injuryProfile)
+        // //profiles in array -> need to find matching index 
+        // const profileIndex = profileEL.injuryProfile.findIndex((profile) => profile._id.toString() === req.params.id);
+
+        // console.log('profileIndex:', profileIndex)
+
+        // // guard 
+        // if (profileIndex === -1){
+        //     return res.redirect('/')
+        // }
+        // updating profile with request
+        // profileEL.injuryProfile[profileIndex] = req.body;
+
+        //profile is embedded in user -> need to save user 
+
+        console.log(req.user.injuryProfile.goal)
+        profileEL.injuryProfile.push(req.body)
+        console.log('!!!!!!!!',req.user.injuryProfile[0].goal)
+        console.log(profileEL)
+        await profileEL.save()
+        res.redirect('/profiles')
+
+    } catch (error) {
+        next(error)
+    }
 }
 
 async function deleteInjuryProfile (req, res, next) {

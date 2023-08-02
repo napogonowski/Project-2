@@ -1,26 +1,26 @@
 const express = require('express');
-const router = express.router;
+const router = express.Router();
 const journalsController = require('../controllers/journals');
+const ensureLoggedIn = require('../config/ensureLoggedIn'); 
 
 //main path set to /journals
 
 // GET -> /journals (index)
-router.get('/', journalsController.index);
+router.get('/', ensureLoggedIn, journalsController.index);
 
 // GET -> /journals /:id (show)
-router.get('/:id', journalsController.show);
+router.get('/:id', ensureLoggedIn, journalsController.show);
 
 // GET -> /journal/new 
-router.get('/new', journalsController.new);
+router.get('/new', ensureLoggedIn, journalsController.new);
 
 // POST -> /ournals (create)
-router.post('/:id', journalsController.create);
+router.post('/:id', ensureLoggedIn, journalsController.create);
 
 // PUT -> /journal/:id (update);
-router.put('/:id', journalsController.update);
-
+router.put('/:id', ensureLoggedIn, journalsController.update);
 
 // Delete -> /journals/:id 
-router.delete('/:id', journalsController.delete);
+router.delete('/:id', ensureLoggedIn, journalsController.delete);
 
-modules.exports = router;
+module.exports = router; 

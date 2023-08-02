@@ -3,13 +3,23 @@ const Exercise = require('../models/excersie');
 const Journal = require('../models/journal');
 
 
-modules.exports= {
+module.exports = {
     delete: deleteJournal,
     create, 
     new: newJournal,
     index,
-    show
+    show,
+    update
 }
+
+async function update (req, res, next){
+    try{
+        
+    } catch(error) {
+        next(error)
+    }
+}
+
 
 async function deleteJournal (req, res, next ) {
     try{} catch(error){

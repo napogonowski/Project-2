@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const injuryProfilesController = require('../controllers/profiles'); 
+const ensureLoggedIn = require('../config/ensureLoggedIn'); 
 
 
 //Point to remember profile !== user but an injury profile created by the user 
@@ -11,19 +12,22 @@ const injuryProfilesController = require('../controllers/profiles');
 
 
 // Get -> /profiles (no id - user authenticated already)
-router.get('/', injuryProfilesController.show);
+router.get('/', ensureLoggedIn, injuryProfilesController.show);
 
 // Get -> /profiles/new 
-router.get('/new', injuryProfilesController.new);
+router.get('/new', ensureLoggedIn, injuryProfilesController.new);
+
+// Get -> /profiles/:id/edit 
+router.get('/edit', ensureLoggedIn,  injuryProfilesController.edit)
 
 //Post -> /profiles 
-router.post('/', injuryProfilesController.create);
+router.post('/', ensureLoggedIn, injuryProfilesController.create);
 
 //PUT -> / profiles/:id (update)
-//router.put('/', injuryProfilesController.update)
+router.put('/', ensureLoggedIn, injuryProfilesController.update)
 
 // Delete -> profiles/:id
-router.delete('/:id', injuryProfilesController.delete);
+router.delete('/:id', ensureLoggedIn, injuryProfilesController.delete);
 
 
 module.exports = router; 

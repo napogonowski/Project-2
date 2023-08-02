@@ -1,2 +1,32 @@
 <%- include('../partials/header')%>
+
+<section class="journalShow">
+    <h3>Journal</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Training Session Number</th>
+                    <th>Date</th>
+                    <th>Session Review:</th>
+                    <th>Session Rating:</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Training session number Maybe this is log ? </td>
+                    <td><%= j.createdAt.toLocaleDateString() %></td>
+                    <td><%= j.content %></td>
+                    <td><%= j.rating %></td>
+                    <td><button>E</button></td>
+                    <td><button>X</button></td>
+                </tr>
+            </tbody>
+</section>
+
+
+
+
+
 <%- include('../partials/footer')%>

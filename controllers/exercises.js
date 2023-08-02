@@ -6,7 +6,7 @@ module.exports = {
     new: newExcercise,
     show,
     create,
-    update,
+    //update,
     delete: deleteExercise
 }
 
@@ -31,19 +31,27 @@ async function deleteExercise (req, res, next){
 }
 
 
-async function update(req, res, next) {
-    try{
-
-    } catch (error) {
-        next(error)
-    }
-}
+// async function update(req, res, next) {
+//     try{
+//         const eId = req.params;
+//         // matching exercise id  with update request 
+//         const exercise = await Exercise.findByIdAndUpdate(eId, req.body);
+//         // guard 
+//         if (!exercise) { 
+//             return res.redirect('/exercises')
+//         }
+//         return exercise;
+//     } catch (error) {
+//         next(error)
+//     }
+//     res.redirect('/exercises/:id'); 
+// }
 
 
 async function create (req, res, next) { 
     try{
         const newExercise = req.body;
-        Exercise.push(newExcercise)
+        Exercise.push(newExercise)
     } catch (error){
         next(error)
     }

@@ -6,6 +6,7 @@ const logger = require('morgan');
 const session = require('express-session');
 const passport = require('passport'); 
 const methodOverride = require('method-override');
+const MongoStore = require('connect-mongo');
 
 require('dotenv').config(); 
 require('./config/database'); 
@@ -17,6 +18,7 @@ const usersRouter = require('./routes/users');
 const profilesRouter = require('./routes/profiles');
 const exercisesRouter = require('./routes/exercises');
 const journalRouter = require('./routes/journal');
+
 
 const app = express();
 
@@ -33,8 +35,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
   secret: process.env.SECRET,
   resave: false,
-  saveUninitialized: true
-}))
+  saveUninitialized: true,
+  store: MongoStore.create({
+    mongoUrl: process.env.DATABASE_URL})
+}));
 app.use(passport.initialize());
 app.use(passport.session()); 
 // giving ejs access to user variable
