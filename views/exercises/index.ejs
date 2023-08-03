@@ -1,9 +1,9 @@
 <%- include('../partials/header') %>
 
-<h2>Exercise Bundle</h2>
+<br><br><h3 class="text-bg-warning p-3">Exercise Bundle</h3><br><br>
 
 <div class="container text-center" >
-  <div class="row row-cols-auto">
+  <div class="row row-cols-auto justify-content-evenly">
     <% if (exercises.length) { %>
       <% exercises.forEach(function(e) { %>
         <div class="col">
@@ -12,7 +12,7 @@
           <% e.video = e.video.toString().replace('watch?v=', 'embed/') %>
           <div class="row align-items-start">
             <div class="col">
-              <div class="card text-bg-warning mb-3" style="width: 18.9rem;">
+              <div class="card text-bg-warning mb-3 object-fit-cover border rounded"" style="width: 18.9rem;">
                 <iframe width="300" height="215" src="<%= e.video %>" frameborder="0"  allowfullscreen></iframe>
                 <div class="card-body">
                   <h4 class="card-title"><%= e.exName %></h4>

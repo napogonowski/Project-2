@@ -1,15 +1,21 @@
 # GA Project 2: Butter
 
-## Full-stack CRUD Application
+#### Full-stack CRUD Application
 
 ## App Description
 
-With this project, i attempted to solve a problem that i face often, which is forgetting to do my physio exercises. Butter is a Full-stack CRUD Application that allows users to create "Injury Profiles" as well as log the exercises that their given to by their physiotherapist. Leaning on my many experiences dealing with injuries, a key factor in rehabilitation journey is the friends/community you make at the physio. I've tried to implement a "social aspect" with "Butter Bunch". On this page, users can share exercises and save ones they like to their own exercise profiles.
+For Project 2 I created the application Butter to address my problem of forgetting to do my physio exercises. Butter is a Full-stack CRUD Application that allows users to create "Injury Profiles" and keep track of the exercises given to them by their physiotherapist. Drawing from my own experience dealing with injuries, I found that the community aspect at physiotherapy was particularly valuable. I tried to incorporate this social aspect via the “Butter Bunch” where users can share exercises and save ones they like
 
 ## App Screenshots
 
+![Imgur](https://i.imgur.com/CmdG6Hk.png)
+![Imgur](https://i.imgur.com/XEl52dX.png)
+![Imgur](https://i.imgur.com/EvwO3Tv.png)
+![Imgur](https://i.imgur.com/7318yNm.png)
+
 ## Technologies Used
 
+- HTML
 - JavaScript
 - Node.js
 - Express
@@ -17,28 +23,29 @@ With this project, i attempted to solve a problem that i face often, which is fo
 - Mongoose
 - Google OAuth
 - Passport
-- Bootstrap
 - Method Override
 - Sessions
+- Bootstrap
 
 ## Getting Started
 
-Unfortunately i have not deloyed my application on Heruko:
-However, when this application ultimately does get deloyed, you will need a working gmail account to access your very own profile.
+Unfortunately, I have not deployed my application on Heroku:
+However, when this application ultimately does get deployed, all you will need a working Gmail account to access your very own profile.
 
 ## Reflections
-I came into this project week quite overwhelmed by the content. My progress throughout project week was serverly haulted by the need to change/refactor models, getting CRUD functionality working and understanding what was needed to pull off my vision. Due to the "unquie" project context, i fould it tricky to find solutions to problems to arose, which resulted in alot of time wasted researching. Once i was able to figure out CRUD with 'profiles', i was able to use that as a guide to tackle the next two sets of CRUDS of my application. Each of these provided their own difficulties and errors along the way.
 
-I still don't feel overly confident with the content, however this project provided alot of opportunties for growth both personally and as a developer.
+I came into this project week quite overwhelmed by the content. My progress throughout project week severely halted by the need to change/refactor models, getting CRUD functionality working and understand what was required to pull off my vision. Due to the "unique" project context, I found it tricky to find solutions to problems to arose, which resulted significant time spent researching. Once I was able to figure out CRUD with 'profiles', I was able to use that as a guide to tackle the next two sets of CRUDS of my application. Each of these provided their own difficulties and errors along the way.
 
-Next time i would plan/map out my application better. This would of given a better road map to follow and saved me a signifcant amount of time i could of used else where or finsihed my project at a reasonable hour. 
+I still don't feel overly confident with the content, however, this project provided many opportunities for growth both personally and as a developer.
+
+Next time I would plan/map out my application better. This would have given me a better road map to follow, focused my attention and saved me a significant amount of time i could have used elsewhere or finished my project at a reasonable hour.
 
 ## Project Next Steps
 
-Originally i had envisioned a few extra features that unfortunately i was unable to get to. Time was against me and i had to priotisie functionality. However if i had more time i would have liked to implement:
+Ambitiously I had envisioned a few extra features that unfortunately were unable to be included. Time was against me and I had to prioritise functionality. However, if I had more time I would have liked to implement:
 
-1. Journal: I wanted the users to be able to reflect on their rehabilitation journey, and write down how physio sessions went (either home exercises or post physio). Journaling helped me quite alot through my various injuryies and i wanted to provide a space for the user to do so as well. This journal would capture things like the date created, exercises completed, review of the session. This would be stored for the user, either to pile dust or for them to reflect back and see the progress they've made.
+1, Journal: I wanted to provide a journal function so that users had the ability to reflect on their rehabilitation journey. Again, drawing from my own experiences, journaling was helpful with both processing how you’re feeling and as a reflection tool to see how far you progressed. The journal would have recorded the date created, completed exercises, and a review of the session.
 
-2. Progress Bar: When visualising this project, the idea of a progress bar on the users profile was something i really wanted to implement. The progress bar would get its value from "trainings per week" \* "number of exercises" the user has in their exercise plan. After completing the exercise (self report), the user would check a check box of some kind and that would add to the progress value, dynamically rendering the progress bar. I thought this would be a fun, interactive way for the user to be motivated to remember to do their exercises, but again i ran out of time to figure out how to implement this idea.
+2. Progress Bar: When visualising this project, the idea of a progress bar on the users' profile was something I really wanted to implement. The progress bar value would come from the product of "trainings per week" \* "the number of exercises" the user has in their exercise plan. Upon completion of a session, the user would self -report and increase the value of their progress bar Additional functionality was needed to make this work that I didn’t have the time to figure out.
 
-3. YouTube API: My original plan was to incorporate YouTube API into the create function and pairing the exercise with a youtube video. My slow start to the project requried me to focus time and effort elsewhere. I ultimately found a work around to still have Youtube clips in my project, however they are provided by the user.
+3. YouTube API: My original plan was to incorporate YouTube API into the create function. Using the name given in the form as a search value, to pair the exercise with a physio related video. Due to my slow start, I had focus time and effort elsewhere. I ultimately found a workaround to still have YouTube videos in my project, however they are provided by the user.

@@ -15,7 +15,6 @@ router.get("/:id/new", ensureLoggedIn, groupRepsController.new);
 
 router.post("/:id/save", ensureLoggedIn, groupRepsController.save);
 
-
 // POST -> /groupReps (create)
 router.post("/", ensureLoggedIn, groupRepsController.create);
 

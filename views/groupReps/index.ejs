@@ -1,9 +1,9 @@
 <%- include('../partials/header') %>
 
-<h2>Exercise Bundle</h2>
+<br><br><h3 class="text-bg-warning p-3">Butter Bunch </h3><br><br>
 
 <div class="container text-center" >
-  <div class="row row-cols-auto">
+  <div class="row row-cols-auto justify-content-evenly">
     <% if (groupReps.length) { %>
       <% groupReps.forEach(function(g) { %>
         <div class="col">
@@ -12,32 +12,30 @@
           <% g.video = g.video.toString().replace('watch?v=', 'embed/') %>
           <div class="row align-items-start">
             <div class="col">
-              <div class="card text-bg-warning mb-3" style="width: 18.5rem;">
+              <div class="card text-bg-warning mb-3 object-fit-cover border rounded" style="width: 18.5rem;">
                 <iframe width="300" height="215" src="<%= g.video %>" frameborder="0"  allowfullscreen></iframe>
                 <div class="card-body">
                   <h4 class="card-title"><%= g.exerciseName %></h4>
                   <p class="card-text"><%= g.exerciseDescription %></p>
                   <p class="card-text">Review:<%= g.review %></p>
                 </div>
-
                   <ul class="list-group list-group-flush -bg-warning ">
                     <li class="list-group-item">Rating: <%= g.rating %></li>
                   </ul>
                   <div>
                     <% if (user?._id.equals(g.owner)) {%>
                     <form 
-                        action="/exercises/<%= g._id %>/?_method=DELETE" 
+                        action="/groupReps/<%= g._id %>/?_method=DELETE" 
                         method="POST"><br>
                         <button class="btn btn-dark" type="submit">X</button>
                     </form>
                     <% } %>
                   </div><br>
                   <form 
-                        action="/groupReps/<%= g._id %>/save?_method=POST" 
-                        method="POST"><br>
-                        <button type="submit">S</button>
-                    </form>
-                
+                      action="/groupReps/<%= g._id %>/save?_method=POST" 
+                      method="POST"><br>
+                      <button class="btn btn-dark" type="submit" width="100">SAVE</button>
+                  </form><br>
               </div>
             </div>
           </div>
