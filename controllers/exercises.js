@@ -13,39 +13,19 @@ module.exports = {
 
 async function deleteExercise(req, res, next) {
   try {
+    // finding the correct exercise to delete
     const exercise = await Exercise.findById(req.params.id);
-    console.log(">>>>>", exercise);
-    // guard
+    // // guard
     if (!exercise) {
-      return res.redirect("/");
+    return res.redirect("/");
     }
-    exercise.remove(req.params.id);
-    Exercises.save();
+    
+    await exercise.deleteOne();
     res.redirect("/exercises");
   } catch (error) {
     next(error);
   }
 }
-
-// async function deleteExercise (req, res, next){
-//     try{
-//         // match the exercise ID to request
-//         const exerciseEl = await Exercise.findOne({'Exercise._id': req.params.id});
-//         //guard
-//         if (!exerciseEl) {
-//             return res.redirect('/exercises')
-//         }
-//         // exercise model is array based
-//         const exerciseIndex = exerciseEl.exercise.findIndex((exercise) => exercise._id.toString() === req.params);
-//         if (exerciseIndex === -1){
-//             return res.redirect('/exercises');
-//         }
-//         exerciseIndex.Exercise.splice(exerciseIndex, 1);
-//         res.redirect('/exercises')
-//     } catch (error) {
-//         next (error)
-//     }
-// }
 
 async function edit(req, res, next) {
   try {

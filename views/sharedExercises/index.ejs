@@ -1,0 +1,38 @@
+<%- include('../partials/header') %>
+
+
+<% exercises.forEach(function(e) { %>
+    <% e.video = e.video.toString().replace('watch?v=', 'embed/') %>
+    
+  <div class="card" style="width: 18rem;">
+    <iframe width="360" height="215" src="<%= e.video %>" frameborder="0"  allowfullscreen></iframe>
+    <div class="card-body">
+      <h5 class="card-title"><%= e.exName %></h5>
+      <p class="card-text"><%= e.description %></p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Sets: <%= e.sets %></li>
+      <li class="list-group-item">Reps: <%= e.reps %></li>
+
+    </ul>
+    <div class="card-body">
+      <a class="card-link" href="/exercises/<%= e._id %>">DETAILS</a>
+      <form 
+          action="/exercises/<%= e._id %>/?_method=DELETE" 
+          method="POST">
+          <button type="submit">X</button>
+      </form>
+    </div>
+  </div>
+  <% }); %>
+
+
+
+
+
+
+
+
+
+
+<%- include('../partials/footer') %>

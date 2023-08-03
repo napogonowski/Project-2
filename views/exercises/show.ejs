@@ -1,6 +1,7 @@
 <%- include('../partials/header') %>
 
-<table class="table">
+<br><h2 class="text-bg-warning p-3"> Exercise Details</h2><br><br>
+<table class="table table-striped-columns">
     <tbody>
         <tr>
             <th scope="row">Exercise Name:</th>
@@ -8,31 +9,30 @@
         </tr>
         <tr>
             <th scope="row">Description:</th>
-              <td><%= exercise.description %></td>
-            </tr>
-            <tr>
+            <td><%= exercise.description %></td>
+        </tr>
+        <tr>
               <th scope="row">Number of Sets:</th>
               <td><%= exercise.sets %></td>
         
-            </tr>
-            <tr>
+        </tr>
+        <tr>
               <th scope="row">Number of Reps:</th>
               <td><%= exercise.reps %></td>
             
-            </tr>
-            <tr>
+        </tr>
+        <tr>
               <th scope="row">Exercise Video:</th>
-              <td><%= exercise.video %> </td>
-            </tr>
-            <tr>
-                <td colspan="2"><a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="/exercises/<%= exercise._id %>/edit">Edit Training Data</a></td>
-            </tr>
-          </tbody>
-        </table>
+              <td><%= exercise.video %></td>
+        </tr>
 
+    </tbody>
+</table>
 
-
-
+    <div >
+        <a  class="btn btn-warning"  href="/exercises/<%= exercise._id %>/edit">Edit Exercise</a>
+        <a class="btn btn-warning"  href="/exercises">Exercise List</a>
+    </div>
 
 
 <%- include('../partials/footer') %>

@@ -16,7 +16,7 @@ router.get("/", ensureLoggedIn, injuryProfilesController.show);
 router.get("/new", ensureLoggedIn, injuryProfilesController.new);
 
 // Get -> /profiles/:id/edit
-router.get("/edit", ensureLoggedIn, injuryProfilesController.edit);
+router.get("/:id/edit", ensureLoggedIn, injuryProfilesController.edit);
 
 //Post -> /profiles
 router.post("/", ensureLoggedIn, injuryProfilesController.create);

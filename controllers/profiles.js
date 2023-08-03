@@ -14,12 +14,13 @@ module.exports = {
 
 async function edit(req, res, next) {
   try {
-    console.log("Heres req user", req.user);
-    const user = await User.findById(req.user.id).populate("injuryProfile");
-    console.log({ injuryProfile: user.injuryProfile });
+    const user = await User.findById(req.user.id);
+    const injuryProfile = user.injuryProfile.find(
+      (p) => p.id === req.params.id
+    );
     res.render("profiles/edit", {
       title: "Edit Injury Profile",
-      injuryProfile: user.injuryProfile,
+      injuryProfile,
     });
   } catch (error) {
     next(error);
@@ -52,24 +53,24 @@ async function update(req, res, next) {
 async function deleteInjuryProfile(req, res, next) {
   try {
     //find the matching profile Id to the request
-    const profileEL = await User.findOne({
+    const user = await User.findOne({
       "injuryProfile._id": req.params.id,
     });
     //guard so we dont delete the wrong profile
-    if (!profileEL) {
+    if (!user) {
       return res.redirect("/profiles");
     }
     //Injury Profile = array -> need to find profile correct index to remove
-    const profileIndex = profileEL.injuryProfile.findIndex(
+    const profileIndex = user.injuryProfile.findIndex(
       (profile) => profile._id.toString() === req.params.id
     );
     //guard
     if (profileIndex === -1) {
       return res.redirect("/profiles");
     }
-    profileEL.injuryProfile.splice(profileIndex, 1);
+    user.injuryProfile.splice(profileIndex, 1);
 
-    await profileEL.save();
+    await user.save();
     res.redirect("/profiles");
   } catch (error) {
     next(error);

@@ -1,70 +1,51 @@
 <%- include('../partials/header') %>
 
     <div class="userInfo">
-        <h2 class="display-5">Hi <%= user.name %> !</h2>
+        <br><br><h2 class="display-5">Hi <%= user.name %> !</h2>
     </div>
 
 
-    <a href="/profiles/new">click this </a>
-
-    <section>
+    <div>
         <% if (user.injuryProfile.length) { %>
-        <h3>Rehab Progression</h3>
-        <table class="table">
-            <thead>
-                <tr>
-                <th scope="col">Goal</th>
-                <th scope="col">Injury</th>
-                <th scope="col">  Sessions Per Week</th>
-                <th scope="col"></th>
-                <th scope="col"></th>
-                </tr>
-            </thead>
-            <tbody>
-            <% user.injuryProfile.forEach((p) => { %>
-                <tr>
-                    <td><%= p.goal %></td>
-                    <td><%= p.injury %></td>
-                    <td><%= p.trainingamount %></td>
-                    <td><a href="/profiles/<%= p._id %>/edit">Edit</a></td>
-                    <td><form 
-                        action="/profiles/<%= p._id %>?_method=DELETE" 
-                        method="POST">
-                        <button type="submit">X</button>
-                        </form>
-                    </td>
-                </tr>
-                <% }) }%>
-            </tbody>
-        </table>
-        
-    </section>
-
-    <section class="plan">
-        <% if (exercise.length) { %>
-            <h3> Exercise Bundle</h3>
-            <table>
+        <h3>Recovery Goals</h3>
+        <div class="table-responsive">
+            <table class="table table-striped">
                 <thead>
                     <tr>
-                    <th>Exercise Name</th>
-                    <th>Sets</th>
-                    <th>Reps</th>
-                    <th></th>
+                    <th scope="col">Exercise Goal</th>
+                    <th scope="col">Current Injury</th>
+                    <th scope="col"> Training Sessions Per Week</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <% exercise.forEach((e) => { %>
-                    <tr>
-                        <td><%= e.exName %></td>
-                        <td><%= e.sets %></td>
-                        <td><%= e.reps%></td>
+                <% user.injuryProfile.forEach((p) => { %>
+                    <tr >
+                        <td ><%= p.goal %></td>
+                        <td ><%= p.injury %></td>
+                        <td class="text-center"><%= p.trainingamount %></td>
+                        <td ><a class="btn btn-warning" href="/profiles/<%=p._id %>/edit">Edit</a></td>
+                        <td ><form 
+                            action="/profiles/<%= p._id %>?_method=DELETE" 
+                            method="POST">
+                            <button class="btn btn-warning" type="submit">X</button>
+                            </form>
+                        </td >
                     </tr>
-                    <div>See full details here</div>
+                    <% }) %>
                 </tbody>
             </table>
-        <% }) }%>
+        </div>
+            
+        <% }  else { %>
+            <h5>Your Goal section is empty</h5>
+
+        <% } %>
         
-    </section>
+    </div>
 
+    <a class="btn btn-warning" href="/profiles/new">Add New Goal </a>
 
+<a href=""></a>
 <%- include('../partials/footer') %>

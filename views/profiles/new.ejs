@@ -1,26 +1,28 @@
 <%- include('../partials/header') %>
 
 <div class="userInfo">
-    <h2>Hi <%= user.name %> ready to enter some infomation ?</h2>
-</div>
+    <h2>Ready to enter some infomation ?</h2>
+</div><br><br>
 
-<div>
+<div class="text-bg-warning p-3">
     <h4>Tell Us Your Recovery Goal</h4>
     <p>Goal setting is a fundamental part of treatment. They provide you with direction and inspiration through the tought times.</p>
+</div><br><br>
 
     <form action="/profiles" method="POST">
-        <label>Whats Your Goal</label>
-        <input type="text" name="goal"><br>
+        <div class="mb-3">
+            <label class="form-label">Whats Your Goal</label>
+            <input class="form-control" type="text" name="goal"><br>
 
-        <label for="">Whats your Injury</label>
-        <input type="text" name="injury"><br>
+            <label class="form-label">Whats your Injury</label>
+            <input class="form-control" type="text" name="injury"><br>
 
-        <label for="">How many Sessions per week</label>
-        <input type="number" name="trainingamount" min="1" max="10"><br>
+            <label class="form-label">How many Sessions per week</label>
+            <input class="form-control" type="number" name="trainingamount" min="1" max="10"><br>
 
-        <button type="submit">Add Your Goal</button>
+            <button class="btn btn-warning" type="submit">Add Your Goal</button>
+        </div>
     </form>
-</div>
 
 
 

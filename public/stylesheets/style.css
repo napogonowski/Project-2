@@ -1,0 +1,9 @@
+.bg-warning{
+    background-image: var(--bs-warning-gradient)
+
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+}
