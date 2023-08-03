@@ -1,6 +1,6 @@
 const User = require("../models/user");
 const Exercise = require("../models/exercise");
-const Journal = require("../models/journal");
+
 // dont think i need exercise or journal requried here
 
 module.exports = {

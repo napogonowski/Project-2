@@ -1,0 +1,35 @@
+<%- include('../partials/header') %>
+
+<br><h2 class="text-bg-warning p-3">Share Exercise Details</h2><br><br>
+
+<p>Help heal the Butter community with your favourite exercises!</p>
+<div>
+    <form  action="/groupReps" method="POST">  
+    <label class="form-label">Exercise Name:</label>
+    <input class="form-control" type="text" name="exerciseName" value="<%= sharedExercise.exName %>"><br>
+
+    <label class="form-label">Description:</label>
+    <textarea class="form-control" name="exerciseDescription"><%= sharedExercise.description %></textarea><br>
+    
+    <label class="form-label">Exercise Review:</label>
+    <p>Let other Butter users know what you love about this exercise!</p>
+    <textarea class="form-control" name="review" placeholder="Write a review"></textarea><br>
+
+    <label class="form-label">Exercise Rating</label>
+    <p>How benefitial did you find this exercise to your recovery? </p>
+    <input class="form-control" type="number" name="sets" min="1" max="10" placeholder="6"><br>
+
+    <label class="form-label">Video Link:</label>
+    <input 
+        type="url" name="video" id="url" 
+        value="<%= sharedExercise.video %>"
+        pattern="https://.*"
+        class="form-control"
+    ><br>
+
+    <button class="btn btn-warning" type="submit">Share Exercise</button>
+    </form> 
+</div>
+
+
+<%- include('../partials/footer') %>

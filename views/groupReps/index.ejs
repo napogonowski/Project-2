@@ -4,43 +4,42 @@
 
 <div class="container text-center" >
   <div class="row row-cols-auto">
-    <% if (exercises.length) { %>
-      <% exercises.forEach(function(e) { %>
+    <% if (groupReps.length) { %>
+      <% groupReps.forEach(function(g) { %>
         <div class="col">
           <!-- User found youtube Links contain 'watch?=' which causes errors -->
           <!-- they need to be replaced with "embed/" -->
-          <% e.video = e.video.toString().replace('watch?v=', 'embed/') %>
+          <% g.video = g.video.toString().replace('watch?v=', 'embed/') %>
           <div class="row align-items-start">
             <div class="col">
               <div class="card text-bg-warning mb-3" style="width: 18.5rem;">
-                <iframe width="300" height="215" src="<%= e.video %>" frameborder="0"  allowfullscreen></iframe>
+                <iframe width="300" height="215" src="<%= g.video %>" frameborder="0"  allowfullscreen></iframe>
                 <div class="card-body">
-                  <h4 class="card-title"><%= e.exName %></h4>
-                  <p class="card-text"><%= e.description %></p>
+                  <h4 class="card-title"><%= g.exerciseName %></h4>
+                  <p class="card-text"><%= g.exerciseDescription %></p>
+                  <p class="card-text">Review:<%= g.review %></p>
                 </div>
 
                 <ul class="list-group list-group-flush -bg-warning ">
-                  <li class="list-group-item">Sets: <%= e.sets %></li>
-                  <li class="list-group-item">Reps: <%= e.reps %></li>
+                  <li class="list-group-item">Rating: <%= g.rating %></li>
                 </ul>
 
                 <div class="card-body">
-                  <a class="btn btn-dark" href="/exercises/<%= e._id %>">DETAILS</a>
+                  <a class="btn btn-dark" href="/exercises/<%= g._id %>">DETAILS</a>
                   <form 
-                      action="/exercises/<%= e._id %>/?_method=DELETE" 
+                      action="/exercises/<%= g._id %>/?_method=DELETE" 
                       method="POST"><br>
                       <button class="btn btn-dark" type="submit">X</button>
                   </form>
                 </div>
-                <a class="btn btn-dark" href="/groupReps/<%= e._id %>/new">SHARE</a>
-                
+                <a class="btn btn-dark" href="/groupReps/<%= g._id %>/new">SHARE</a>
               </div>
             </div>
           </div>
         </div>
       <% }); %>
     <% } else { %>
-      <h5>Your Goal section is empty</h5>
+      <h5>The Butter Community is Empty </h5>
     <% } %>
   </div>
   <br>
@@ -48,6 +47,8 @@
     <a class="btn btn-warning" href="/exercises/new">Add New Exercise</a>
   </div>
 </div>
+
+
 
 
 <%- include('../partials/footer') %>
