@@ -14,7 +14,6 @@ require("./config/passport");
 
 //routes
 const indexRouter = require("./routes/index");
-const usersRouter = require("./routes/users");
 const profilesRouter = require("./routes/profiles");
 const exercisesRouter = require("./routes/exercises");
 const groupRepsRouter = require("./routes/groupReps");
@@ -50,7 +49,6 @@ app.use(function (req, res, next) {
 });
 
 app.use("/", indexRouter);
-app.use("/users", usersRouter);
 app.use("/profiles", profilesRouter);
 app.use("/exercises", exercisesRouter);
 app.use("/groupReps", groupRepsRouter);
