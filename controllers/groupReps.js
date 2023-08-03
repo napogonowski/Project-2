@@ -7,9 +7,26 @@ module.exports = {
   create,
   new: newGroupRep,
   index,
-  //show,
+  save,
   update,
 };
+
+async function save(req, res, next) {
+  try {
+    const groupRep = await GroupRep.findById(req.params.id);
+    const exercise = await Exercise.create({
+      exName: groupRep.exerciseName,
+      description: groupRep.exerciseDescription,
+      video: groupRep.video,
+      userId: req.user.id,
+      sets: 0,
+      reps: 0,
+    });
+    res.redirect(`/exercises/${exercise.id}/edit`);
+  } catch (error) {
+    next(error);
+  }
+}
 
 async function update(req, res, next) {
   try {
@@ -26,14 +43,13 @@ async function deleteGroupRep(req, res, next) {
 }
 async function create(req, res, next) {
   try {
-    await GroupRep.create({...req.body, owner: req.user.id})
-    
-    res.redirect('/groupReps')
+    await GroupRep.create({ ...req.body, owner: req.user.id });
+
+    res.redirect("/groupReps");
   } catch (error) {
     next(error);
   }
 }
-
 
 async function newGroupRep(req, res, next) {
   try {
@@ -55,4 +71,3 @@ async function index(req, res, next) {
     next(error);
   }
 }
-

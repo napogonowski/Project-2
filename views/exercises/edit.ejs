@@ -7,22 +7,22 @@
 <div class="mb-3">
     <form action="/exercises/<%= exercise._id %>?_method=PUT" method="POST">
         <label class="form-label">Exercise Name:</label>
-        <input  class="form-control"type="text" name="exName"><br>
+        <input  class="form-control"type="text" name="exName" value="<%= exercise.exName %>"><br>
     
         <label class="form-label">Description:</label>
-        <textarea  class="form-control" name="description"></textarea><br>
+        <textarea  class="form-control" name="description"><%= exercise.description %></textarea><br>
     
         <label class="form-label">Number of Sets:</label>
-        <input  class="form-control" type="number" name="sets" min="1" max="10"><br>
+        <input  class="form-control" type="number" name="sets" min="1" max="10" value="<%= exercise.sets %>"><br>
     
         <label class="form-label">Number of Reps:</label>
-        <input  class="form-control" type="number" name="reps" min="1" max="15"><br>
+        <input  class="form-control" type="number" name="reps" min="1" max="15" value="<%= exercise.reps %>"><br>
     
         <label class="form-label" >Video Link:</label>
         <input 
             class="form-control"
             type="url" name="video" id="url" 
-            placeholder="https://example.com"
+            value="<%= exercise.video %>"
             pattern="https://.*"
         ><br>
 

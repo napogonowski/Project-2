@@ -20,19 +20,24 @@
                   <p class="card-text">Review:<%= g.review %></p>
                 </div>
 
-                <ul class="list-group list-group-flush -bg-warning ">
-                  <li class="list-group-item">Rating: <%= g.rating %></li>
-                </ul>
-
-                <div class="card-body">
-                  <a class="btn btn-dark" href="/exercises/<%= g._id %>">DETAILS</a>
+                  <ul class="list-group list-group-flush -bg-warning ">
+                    <li class="list-group-item">Rating: <%= g.rating %></li>
+                  </ul>
+                  <div>
+                    <% if (user?._id.equals(g.owner)) {%>
+                    <form 
+                        action="/exercises/<%= g._id %>/?_method=DELETE" 
+                        method="POST"><br>
+                        <button class="btn btn-dark" type="submit">X</button>
+                    </form>
+                    <% } %>
+                  </div><br>
                   <form 
-                      action="/exercises/<%= g._id %>/?_method=DELETE" 
-                      method="POST"><br>
-                      <button class="btn btn-dark" type="submit">X</button>
-                  </form>
-                </div>
-                <a class="btn btn-dark" href="/groupReps/<%= g._id %>/new">SHARE</a>
+                        action="/groupReps/<%= g._id %>/save?_method=POST" 
+                        method="POST"><br>
+                        <button type="submit">S</button>
+                    </form>
+                
               </div>
             </div>
           </div>
@@ -43,9 +48,6 @@
     <% } %>
   </div>
   <br>
-  <div>
-    <a class="btn btn-warning" href="/exercises/new">Add New Exercise</a>
-  </div>
 </div>
 
 

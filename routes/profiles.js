@@ -22,7 +22,7 @@ router.get("/:id/edit", ensureLoggedIn, injuryProfilesController.edit);
 router.post("/", ensureLoggedIn, injuryProfilesController.create);
 
 //PUT -> / profiles/:id (update)
-router.put("/", ensureLoggedIn, injuryProfilesController.update);
+router.put("/:id", ensureLoggedIn, injuryProfilesController.update);
 
 // Delete -> profiles/:id
 router.delete("/:id", ensureLoggedIn, injuryProfilesController.delete);

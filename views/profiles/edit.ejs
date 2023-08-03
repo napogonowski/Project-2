@@ -2,7 +2,7 @@
 
 <br><h4 class="text-bg-warning p-3"> Edit Goals</h4>
 
-<form action="/profiles/?_method=PUT" method="POST">
+<form action="/profiles/<%= injuryProfile._id %>?_method=PUT" method="POST">
     <label class="form-label">Exercise Goal </label>
     <input class="form-control"type="text" name="goal" value="<%= injuryProfile.goal %>"><br>
 

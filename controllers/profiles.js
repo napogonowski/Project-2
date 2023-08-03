@@ -18,6 +18,7 @@ async function edit(req, res, next) {
     const injuryProfile = user.injuryProfile.find(
       (p) => p.id === req.params.id
     );
+    console.log("INJURY PROFILE", injuryProfile);
     res.render("profiles/edit", {
       title: "Edit Injury Profile",
       injuryProfile,
@@ -27,23 +28,37 @@ async function edit(req, res, next) {
   }
 }
 
+// async function update(req, res, next) {
+//   try {
+//     const user = req.user;
+//     console.log(req.user);
+
+//     // matching exercise id  with update request
+//     const injuryProfile = await user.injuryProfile.findByIdAndUpdate(
+//       req.params.id,
+//       req.body
+//     );
+//     // guard
+//     if (!exercise) {
+//       return res.redirect("/profiles");
+//     }
+//     res.redirect(`/profiles/${req.params.id}`);
+//   } catch (error) {
+//     next(error);
+//   }
+// }
+
 async function update(req, res, next) {
   try {
-    // matching id to request
-    const profileEL = await User.findOneAndUpdate(
-      { _id: req.user._id },
-      req.body
-    );
-    //guard
-    if (!profileEL) {
-      return res.redirect("/profiles");
-    }
-    const profileIndex = profileEL.injuryProfile.findIndex(
+    const user = req.user;
+    const profileIndex = user.injuryProfile.findIndex(
       (profile) => profile._id.toString() === req.params.id
     );
-
-    profileEL.injuryProfile.splice(profileIndex, 1, req.body);
-    await profileEL.save();
+    if (profileIndex === -1) {
+      return res.redirect("/profiles");
+    }
+    user.injuryProfile.splice(profileIndex, 1, req.body);
+    await user.save();
     res.redirect("/profiles");
   } catch (error) {
     next(error);
@@ -118,17 +133,11 @@ async function show(req, res, next) {
       rep: Exercise.reps,
       sets: Exercise.sets,
     });
-    // need to remove this
-    const journal = await Journal.find({
-      content: Journal.content,
-      rating: Journal.rating,
-    });
 
     res.render("profiles/show", {
       title: "Profile",
       profile,
       exercise,
-      journal,
     });
   } catch (error) {
     next(error);
