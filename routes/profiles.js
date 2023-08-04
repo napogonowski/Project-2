@@ -4,9 +4,7 @@ const injuryProfilesController = require("../controllers/profiles");
 const ensureLoggedIn = require("../config/ensureLoggedIn");
 
 //Point to remember profile !== user but an injury profile created by the user
-
 // The SHOW acts as the index as we are only showing the authenticated users data
-
 // slightly confusing but path endpoints are not conventional in this route as a result
 
 // Get -> /profiles (no id - user authenticated already)

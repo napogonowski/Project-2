@@ -19,7 +19,6 @@ async function deleteExercise(req, res, next) {
     if (!exercise) {
     return res.redirect("/");
     }
-    
     await exercise.deleteOne();
     res.redirect("/exercises");
   } catch (error) {
@@ -74,6 +73,7 @@ async function newExcercise(req, res) {
 
 async function show(req, res, next) {
   try {
+    // finding user the exercises belonging to that user
     const user = await User.findById(req.user.id);
     const exercise = await Exercise.findById(req.params.id);
     res.render("exercises/show", { title: "Solo exercise", exercise, user });

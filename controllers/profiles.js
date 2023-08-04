@@ -1,7 +1,6 @@
 const User = require("../models/user");
 const Exercise = require("../models/exercise");
 
-// dont think i need exercise or journal requried here
 
 module.exports = {
   delete: deleteInjuryProfile,
@@ -18,7 +17,6 @@ async function edit(req, res, next) {
     const injuryProfile = user.injuryProfile.find(
       (p) => p.id === req.params.id
     );
-    console.log("INJURY PROFILE", injuryProfile);
     res.render("profiles/edit", {
       title: "Edit Injury Profile",
       injuryProfile,
@@ -28,35 +26,18 @@ async function edit(req, res, next) {
   }
 }
 
-// async function update(req, res, next) {
-//   try {
-//     const user = req.user;
-//     console.log(req.user);
-
-//     // matching exercise id  with update request
-//     const injuryProfile = await user.injuryProfile.findByIdAndUpdate(
-//       req.params.id,
-//       req.body
-//     );
-//     // guard
-//     if (!exercise) {
-//       return res.redirect("/profiles");
-//     }
-//     res.redirect(`/profiles/${req.params.id}`);
-//   } catch (error) {
-//     next(error);
-//   }
-// }
-
 async function update(req, res, next) {
   try {
     const user = req.user;
+    //Injury Profile = array -> need to find correct index to remove
     const profileIndex = user.injuryProfile.findIndex(
       (profile) => profile._id.toString() === req.params.id
     );
+    //guard
     if (profileIndex === -1) {
       return res.redirect("/profiles");
     }
+    // injury profile = array -> splice needed to update
     user.injuryProfile.splice(profileIndex, 1, req.body);
     await user.save();
     res.redirect("/profiles");
@@ -71,11 +52,11 @@ async function deleteInjuryProfile(req, res, next) {
     const user = await User.findOne({
       "injuryProfile._id": req.params.id,
     });
-    //guard so we dont delete the wrong profile
+    //guard 
     if (!user) {
       return res.redirect("/profiles");
     }
-    //Injury Profile = array -> need to find profile correct index to remove
+    //Injury Profile = array -> need to find correct index to remove
     const profileIndex = user.injuryProfile.findIndex(
       (profile) => profile._id.toString() === req.params.id
     );
@@ -84,7 +65,6 @@ async function deleteInjuryProfile(req, res, next) {
       return res.redirect("/profiles");
     }
     user.injuryProfile.splice(profileIndex, 1);
-
     await user.save();
     res.redirect("/profiles");
   } catch (error) {
@@ -96,11 +76,11 @@ async function create(req, res, next) {
   try {
     // finding correct user
     const user = await User.findById(req.user.id);
-    //storing user input -> pushing into injury profile (array = push)
+    //storing user input -> pushing into injury profile (array)
     const newProfile = req.body;
     user.injuryProfile.push(newProfile);
 
-    //embededded = need to save user first
+    //injury Profiles embededded = save user 
     await user.save();
     res.redirect("/profiles");
   } catch (error) {
@@ -111,7 +91,7 @@ async function create(req, res, next) {
 async function newProfile(req, res) {
   const injuryProfile = await User.findById(req.params.id);
   res.render("profiles/new", {
-    title: "Awesometitle",
+    title: "New Profile",
     injuryProfile,
   });
 }
