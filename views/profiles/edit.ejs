@@ -1,7 +1,5 @@
 <%- include('../partials/header') %>
-
 <br><h4 class="text-bg-warning p-3"> Edit Goals</h4>
-
 <form action="/profiles/<%= injuryProfile._id %>?_method=PUT" method="POST">
     <label class="form-label">Exercise Goal </label>
     <input class="form-control"type="text" name="goal" value="<%= injuryProfile.goal %>"><br>
@@ -13,11 +11,4 @@
     <input class="form-control"type="number" name="trainingamount" min="1" max="10" value=<%= injuryProfile.trainingamount %>><br>
     <button class="btn btn-warning" type="submit">Update Your Goal</button>
 </form>
-
-
-
-
-
-
-
 <%- include('../partials/footer') %>

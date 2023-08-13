@@ -9,9 +9,19 @@ For Project 2 I created the application Butter to address my problem of forgetti
 ## App Screenshots
 
 ![Imgur](https://i.imgur.com/CmdG6Hk.png)
+Log in page
+
 ![Imgur](https://i.imgur.com/XEl52dX.png)
-![Imgur](https://i.imgur.com/EvwO3Tv.png)
-![Imgur](https://i.imgur.com/7318yNm.png)
+
+This is the Users personal profile page. On this page the user can enter in the details of the injury, how often they would like to train per week and what goal they're working towards 
+
+![Imgur](https://i.imgur.com/Lhg6RhB.png)
+
+The Exercise Bundle is where the user can enter in the physio exercise details and youtube link. This page stores all the exercises and has the ability to share any exercises to a community page called the Butter Bunch 
+
+![Imgur](https://i.imgur.com/ui3kwC9.png)
+
+The Butter bunch is the community aspect of the applicaiton. Users can share exercises they find beneficial for others to see and try out themselves. As you can see, if the user 'owns' the exercise there is delete functionality, however if they do not own the exercise the only functinoality avaiable to that user is to save the exercise to their own exercise bundle. 
 
 ## Technologies Used
 - Node.js

@@ -1,10 +1,7 @@
 <%- include('../partials/header') %>
-
     <div class="userInfo">
         <br><br><h2 class="display-5">Hi <%= user.name %> !</h2>
     </div>
-
-
     <div>
         <% if (user.injuryProfile.length) { %>
         <h3>Recovery Goals</h3>
@@ -37,15 +34,10 @@
                 </tbody>
             </table>
         </div>
-            
         <% }  else { %>
             <h5>Your Goal section is empty</h5>
-
-        <% } %>
-        
+        <% } %> 
     </div>
-
     <a class="btn btn-warning" href="/profiles/new">Add New Goal </a>
-
 <a href=""></a>
 <%- include('../partials/footer') %>
