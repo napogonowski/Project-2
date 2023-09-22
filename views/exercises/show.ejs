@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 
-<br><h2 class="text-bg-warning p-3"> Exercise Details</h2><br><br>
-<table class="table table-striped-columns">
+<br><h2 class="border border-black text-bg-warning p-3 mt-3"> Exercise Details</h2><br><br>
+<table class="table table-striped-columns mb-5">
     <tbody>
         <tr>
             <th scope="row">Exercise Name:</th>
@@ -29,9 +29,9 @@
     </tbody>
 </table>
 
-    <div >
-        <a  class="btn btn-warning"  href="/exercises/<%= exercise._id %>/edit">Edit Exercise</a>
-        <a class="btn btn-warning"  href="/exercises">Exercise List</a>
+    <div>
+        <a  class="btn btn-warning m-2 fs-5"  href="/exercises/<%= exercise._id %>/edit">Edit</a>
+        <a class="btn btn-warning fs-5"  href="/exercises">Exercise List</a>
     </div>
 
 

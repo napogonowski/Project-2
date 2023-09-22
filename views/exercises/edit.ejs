@@ -1,10 +1,10 @@
 <%- include('../partials/header') %>
 
 <div>
-    <br><h4 class="text-bg-warning p-3">Edit Exercise</h4><br><br>
+    <br><h4 class="text-bg-warning p-3 mt-3 ">Edit Exercise</h4><br><br>
 </div>
 
-<div class="mb-3">
+<div class="mb-4">
     <form action="/exercises/<%= exercise._id %>?_method=PUT" method="POST">
         <label class="form-label">Exercise Name:</label>
         <input  class="form-control"type="text" name="exName" value="<%= exercise.exName %>"><br>
@@ -26,10 +26,10 @@
             pattern="https://.*"
         ><br>
 
-        <button class="btn btn-warning" type="submit">Submit Edit </button>
+        <button class="btn btn-warning fs-5" type="submit">Submit</button>
     </form>
 </div>
-<a class="btn btn-warning" href="/exercises">Back</a>
+<a class="btn btn-warning fs-5" href="/exercises">Back</a>
 
 
 <%- include('../partials/footer') %>

@@ -1,19 +1,19 @@
 <%- include('../partials/header') %>
     <div class="userInfo">
-        <br><br><h2 class="display-5">Hi <%= user.name %> !</h2>
+        <br><br><h2 class="display-4 mb-5">Hi <%= user.name %> !</h2>
     </div>
     <div>
         <% if (user.injuryProfile.length) { %>
-        <h3>Recovery Goals</h3>
+        <h3 class="mb-4">Recovery Goals</h3>
         <div class="table-responsive">
             <table class="table table-striped">
                 <thead>
                     <tr>
-                    <th scope="col">Exercise Goal</th>
-                    <th scope="col">Current Injury</th>
-                    <th scope="col"> Training Sessions Per Week</th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
+                    <th scope="col" class="fs-5">Exercise Goal</th>
+                    <th scope="col" class="fs-5">Current Injury</th>
+                    <th scope="col" class="fs-5"> Training Sessions Per Week</th>
+                    <th scope="col" class="fs-5"></th>
+                    <th scope="col" class="fs-5"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -38,6 +38,6 @@
             <h5>Your Goal section is empty</h5>
         <% } %> 
     </div>
-    <a class="btn btn-warning" href="/profiles/new">Add New Goal </a>
+    <a class="btn btn-warning fs-5 mt-4" href="/profiles/new">Add Goal </a>
 <a href=""></a>
 <%- include('../partials/footer') %>

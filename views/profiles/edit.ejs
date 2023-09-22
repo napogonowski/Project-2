@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
-<br><h4 class="text-bg-warning p-3"> Edit Goals</h4>
+<br><h4 class="border border-black text-bg-warning p-3 mt-3 fs-3"> Edit Goals</h4>
 <form action="/profiles/<%= injuryProfile._id %>?_method=PUT" method="POST">
-    <label class="form-label">Exercise Goal </label>
+    <label class=" form-label mt-3">Exercise Goal </label>
     <input class="form-control"type="text" name="goal" value="<%= injuryProfile.goal %>"><br>
 
     <label class="form-label">Current Injury</label>
@@ -9,6 +9,6 @@
 
     <label class="form-label">How Often Can you Train per Week</label>
     <input class="form-control"type="number" name="trainingamount" min="1" max="10" value=<%= injuryProfile.trainingamount %>><br>
-    <button class="btn btn-warning" type="submit">Update Your Goal</button>
+    <button class="btn btn-warning fs-5" type="submit">Update</button>
 </form>
 <%- include('../partials/footer') %>
