@@ -39,8 +39,9 @@ The Butter bunch is the community aspect of the applicaiton. Users can share exe
 
 ## Getting Started
 
-Unfortunately, I have not deployed my application on Heroku:
-However, when this application ultimately does get deployed, all you will need a working Gmail account to access your very own profile.
+Butter is deployed on Vercel @ https://project-2-butter.vercel.app
+
+To to access your very own Butter profile, all you need is a working Gmail account.
 
 ## Reflections
 
